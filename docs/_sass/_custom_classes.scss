@@ -347,6 +347,23 @@ footer .container {
     display: none;
 }
 
+/*----Coding theme------*/
+//NOTE: overriding ETT theme colours. Cannot change colours elsewhere
+.highlight .nb {
+    color: #007AA3 !important;
+}
+.highlight .c,
+.highlight .ch,
+.highlight .cd,
+.highlight .cpf {
+    color: #707070 !important;
+}
+.highlight .m,
+.highlight .mb,
+.highlight .mx {
+    color: #008080 !important;
+}
+    
 /*-----Related page badges by page type-----*/
 // The theme's tool tables (and tools-table.html) link each related page with
 // title="<page type>", which Bootstrap's tooltip moves to data-bs-original-title.
@@ -379,21 +396,4 @@ $related-page-types: (
             background-color: var(--bs-primary);
         }
     }
-}
-
-/*----Coding theme------*/
-//NOTE: overriding ETT theme colours. Cannot change colours elsewhere
-.highlight .nb {
-    color: #007AA3 !important;
-}
-.highlight .c,
-.highlight .ch,
-.highlight .cd,
-.highlight .cpf {
-    color: #707070 !important;
-}
-.highlight .m,
-.highlight .mb,
-.highlight .mx {
-    color: #008080 !important;
 }
