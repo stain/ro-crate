@@ -13,6 +13,7 @@ body {
     font-family: PTSans, sans-serif;
 }
 
+
 @font-face {
     font-family: PTSans;
     src: url('../fonts/PTSans-Regular.ttf') format('truetype'),
@@ -84,6 +85,15 @@ table.tooltable colgroup col:nth-child(3) {
             border-left: 4px solid $primary;
         }
     }
+    // Bring back left-side border on active sidebar items
+    // The li elements apply background shading in updated theme
+    ul > li:has(> a.active) {
+        border-bottom-left-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+        border-left-color: $primary;
+        border-left-style: solid;
+        border-left-width: 4px;
+    }
     a {
         text-decoration-line: none;
         border-left: 4px solid $sidebar-bg;
@@ -108,6 +118,22 @@ table.tooltable colgroup col:nth-child(3) {
     //    // Hide the type of tile label
     //    display: none !important;
     //}
+
+    // Page icons
+    .card .section-title .page-img-sm {
+        @media only screen
+        and (min-width : 171px) {
+            // Position icon relative to card body container
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        @media only screen
+        and (max-width : 171px) {
+            // Position according to regular flow
+            position: static;
+        }
+    }
 
     .btn.py-4.hover-primary {
         border-left: 0px solid $primary;
@@ -162,6 +188,21 @@ table.tooltable colgroup col:nth-child(3) {
 
     .card-footer {
         padding-top: 0;
+    }
+}
+
+// Primarily used in use cases
+// Can't rely on indication focus by colour change alone
+// Need to indicate via visible border
+// NOTE: this should be replaced by new Sass variables in ETT 7.0.0
+// See https://github.com/ELIXIR-Belgium/elixir-toolkit-theme/pull/452
+.dropdown-toggle {
+    &:hover {
+        border-color: var(--bs-btn-active-border-color);
+    }
+
+    &:focus {
+        border-color: var(--bs-btn-active-border-color);
     }
 }
 
@@ -315,6 +356,23 @@ footer .container {
     display: none;
 }
 
+/*----Coding theme------*/
+//NOTE: overriding ETT theme colours. Cannot change colours elsewhere
+.highlight .nb {
+    color: #007AA3 !important;
+}
+.highlight .c,
+.highlight .ch,
+.highlight .cd,
+.highlight .cpf {
+    color: #707070 !important;
+}
+.highlight .m,
+.highlight .mb,
+.highlight .mx {
+    color: #008080 !important;
+}
+    
 /*-----Related page badges by page type-----*/
 // The theme's tool tables (and tools-table.html) link each related page with
 // title="<page type>", which Bootstrap's tooltip moves to data-bs-original-title.
